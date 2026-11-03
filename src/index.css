@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* Dark theme with a warm gold accent, drawn from the reference design. */
+@theme {
+  --color-ink: #0a0a0b;
+  --color-panel: #141416;
+  --color-panel-2: #1c1c20;
+  --color-line: #2a2a30;
+  --color-mist: #a1a1aa;
+  --color-snow: #f4f2ee;
+  --color-gold: #d6aa5c;
+  --color-gold-deep: #b8893e;
+
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ease-luxe: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink font-sans text-snow antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight text-snow;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-gold;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-ink transition-colors duration-500 ease-luxe hover:bg-gold-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold disabled:opacity-60;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-medium text-snow transition-colors duration-500 ease-luxe hover:border-gold hover:text-gold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold;
+  }
+
+  .card {
+    @apply rounded-3xl border border-line bg-panel;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-panel px-4 py-3 font-sans text-sm text-snow placeholder:text-mist/60 transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30;
+  }
+
+  .field-label {
+    @apply mb-2 block text-xs font-medium text-mist;
+  }
+
+  .glass {
+    @apply rounded-2xl border border-white/10 bg-ink/75 text-snow backdrop-blur-md;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: fade-up 900ms var(--ease-luxe) both;
+}
+
+/* Slow, subtle zoom on hero imagery. */
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.ken-burns {
+  animation: ken-burns 22s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .ken-burns {
+    animation: none;
+  }
+}
