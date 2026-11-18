@@ -4,6 +4,7 @@ import { ArrowRight, CalendarCheck, Clock, Headset, Mail, MapPin, Phone, Play, R
 import { SectionHeading, VehicleImage } from '../components/ui'
 import { InquiryForm } from '../components/InquiryForm'
 import { DirectContact } from '../components/DirectContact'
+import { TextReveal } from '../components/TextReveal'
 import { Hero } from '../components/Hero'
 import { CONTACT, categories, findVehicle, formatPrice, type VehicleCategory } from '../data/fleet'
 import { useModals } from '../context/ModalContext'
@@ -237,37 +238,59 @@ export function Home() {
       </section>
 
       {/* Send an inquiry */}
-      <section className="border-t border-line bg-panel py-20 lg:py-28">
+      <section className="relative isolate overflow-hidden border-t border-line bg-ink py-20 lg:py-28">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(214,170,92,0.14),transparent_55%)]" />
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-12 lg:gap-16 lg:px-10">
-          <div className="lg:col-span-7">
-            <SectionHeading title="Tell us about your journey" />
-            <div className="card mt-10 p-6 sm:p-10">
-              <InquiryForm />
-            </div>
+          <div className="lg:col-span-5 lg:pt-6">
+            <h2 className="text-4xl leading-[1.08] sm:text-5xl">
+              <TextReveal text="Tell us about your journey" />
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-mist">
+              Share your dates and destinations. A concierge replies with a fixed quotation within one business hour.
+            </p>
+            <span className="mt-10 block h-px w-20 bg-gradient-to-r from-gold to-transparent" aria-hidden="true" />
+
+            <ul className="mt-10 space-y-7">
+              <li className="flex items-center gap-5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-gold">
+                  <Phone size={18} strokeWidth={1.5} />
+                </span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-mist">Call us</p>
+                  <a href={CONTACT.phoneHref} className="mt-1 block font-display text-xl text-snow transition-colors hover:text-gold">
+                    {CONTACT.phoneDisplay}
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-center gap-5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-gold">
+                  <Mail size={18} strokeWidth={1.5} />
+                </span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-mist">Email</p>
+                  <a href={`mailto:${CONTACT.email}`} className="mt-1 block font-display text-xl text-snow transition-colors hover:text-gold">
+                    {CONTACT.email}
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-center gap-5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/5 text-gold">
+                  <MapPin size={18} strokeWidth={1.5} />
+                </span>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-mist">Visit</p>
+                  <p className="mt-1 text-base text-snow">{CONTACT.address}</p>
+                </div>
+              </li>
+            </ul>
+
+            <DirectContact className="mt-10" />
           </div>
 
-          <div className="relative lg:col-span-5">
-            <DirectContact className="mb-6" />
-            <img
-              src="/images/mercedes-maybach-s680.png"
-              alt="Mercedes-Maybach S 680"
-              className="aspect-[4/5] w-full rounded-3xl object-cover"
-            />
-            <div className="glass absolute inset-x-4 bottom-4 p-6 sm:inset-x-8 sm:bottom-8 sm:p-8">
-              <ul className="space-y-4 text-sm">
-                <li className="flex gap-3">
-                  <Phone size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-gold" />
-                  <a href={CONTACT.phoneHref} className="hover:text-gold">{CONTACT.phoneDisplay}</a>
-                </li>
-                <li className="flex gap-3">
-                  <Mail size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-gold" />
-                  <a href={`mailto:${CONTACT.email}`} className="hover:text-gold">{CONTACT.email}</a>
-                </li>
-                <li className="flex gap-3">
-                  <MapPin size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-gold" />
-                  <span>{CONTACT.address}</span>
-                </li>
-              </ul>
+          <div className="relative lg:col-span-7">
+            <div className="relative overflow-hidden rounded-[2rem] border border-gold/25 bg-gradient-to-b from-panel-2 to-panel p-6 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.9)] sm:p-10">
+              <span className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent" aria-hidden="true" />
+              <InquiryForm />
             </div>
           </div>
         </div>
