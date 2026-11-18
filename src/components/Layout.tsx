@@ -44,7 +44,7 @@ export function Layout() {
     <div className="flex min-h-dvh flex-col">
       <header className="pointer-events-none fixed inset-x-0 top-4 z-50 px-4">
         <div
-          className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border py-2 pl-4 pr-5 backdrop-blur-xl transition-colors duration-700 sm:pl-5 sm:pr-7 ${bar}`}
+          className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between h-[100px] rounded-full border py-0 pl-4 pr-5 backdrop-blur-xl transition-colors duration-700 sm:pl-5 sm:pr-7 ${bar}`}
         >
           <Link to="/" className="group inline-flex items-center" aria-label="Genzee Fleet home">
             <img src="/images/genzee-fleet-logo-transparent.png" alt="Genzee Fleet" width="1536" height="1024" className="h-[100px] w-auto" />
