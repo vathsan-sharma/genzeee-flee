@@ -34,13 +34,6 @@ const benefits = [
   { icon: Star, title: 'Corporate accounts', body: 'Consolidated billing, priority allocation and a named account manager.' },
 ]
 
-// Sample copy in the review slots. Replace with real client testimonials before launch.
-const reviews = [
-  'Our car was ready before we landed, and the handover could not have been smoother.',
-  'We book the shuttle for every client visit. Timings are always kept and the team anticipates needs.',
-  'Discreet, precise and beautifully presented. It is the standard we expect from a private car service.',
-]
-
 const categoryImage: Record<VehicleCategory, string> = {
   'Luxury Cars': 'ghost-extended',
   SUVs: 'escalade-platinum',
@@ -196,32 +189,6 @@ export function Home() {
             })}
           </ul>
         </div>
-      </section>
-
-      {/* Reviews */}
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-        <h2 className="text-4xl sm:text-5xl">Trusted by discerning drivers</h2>
-        <ul className="mt-14 grid gap-5 md:grid-cols-3">
-          {reviews.map((quote) => (
-            <li key={quote} className="card flex flex-col justify-between p-8">
-              <div>
-                <div className="flex gap-1 text-gold" aria-label="Five stars">
-                  {Array.from({ length: 5 }, (_, i) => (
-                    <Star key={i} size={14} strokeWidth={1.25} fill="currentColor" />
-                  ))}
-                </div>
-                <p className="mt-6 leading-relaxed text-snow/90">“{quote}”</p>
-              </div>
-              <div className="mt-10 flex items-center gap-4 border-t border-line pt-6">
-                <span className="h-10 w-10 shrink-0 rounded-full bg-panel-2" />
-                <div>
-                  <p className="text-sm">Client name</p>
-                  <p className="text-xs text-mist">Role, company</p>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
 
       {/* Quote: a CTA band that opens the modal */}
