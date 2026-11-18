@@ -146,7 +146,7 @@ export function Home() {
             View all benefits
           </Link>
         </div>
-        <ul className="mt-14 grid gap-5 sm:grid-cols-2">
+        <ul className="mt-14 grid gap-5 md:grid-cols-3">
           {benefits.map(({ icon: Icon, title, body }) => (
             <li key={title} className="card flex gap-6 p-7">
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold">
