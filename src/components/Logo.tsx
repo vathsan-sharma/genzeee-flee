@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export function Logo() {
   return (
     <Link to="/" className="group inline-flex items-center rounded-2xl border border-gold/35 bg-[#f7f4ee] px-4 py-2" aria-label="Genzee Fleet home">
-      <img src="/images/genzee-fleet-logo-transparent.png" alt="Genzee Fleet" width="1536" height="1024" className="h-12 w-auto" />
+      <img src="/images/genzee-fleet-logo-transparent.png" alt="Genzee Fleet" width="1536" height="1024" className="h-[90px] w-auto" />
     </Link>
   )
 }
