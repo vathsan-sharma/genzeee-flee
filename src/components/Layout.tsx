@@ -45,7 +45,7 @@ export function Layout() {
         <div
           className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border px-5 py-3 backdrop-blur-xl transition-colors duration-700 sm:px-7 ${bar}`}
         >
-          <Link to="/" className="group inline-flex items-center rounded-2xl border border-gold/40 bg-white px-4 py-2 shadow-[0_10px_24px_-12px_rgba(0,0,0,0.6)]" aria-label="Genzee Fleet home">
+          <Link to="/" className="group inline-flex items-center rounded-[50px] border border-gold/40 bg-white px-4 py-2 shadow-[0_10px_24px_-12px_rgba(0,0,0,0.6)]" aria-label="Genzee Fleet home">
             <img src="/images/genzee-fleet-logo.webp" alt="Genzee Fleet" width="1536" height="1024" className="h-20 w-auto" />
           </Link>
 
