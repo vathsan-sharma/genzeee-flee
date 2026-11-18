@@ -110,6 +110,7 @@ export const vehicles: Vehicle[] = [
       'A seven-seat luxury SUV with a calm cabin and strong all-weather traction, well suited to family travel and small group transfers.',
     specs: { engine: null, horsepower: null, zeroToHundred: null, drivetrain: null, luggage: null },
     plate: { from: '#1f2c3d', to: '#0a1322' },
+    photo: '/images/bmw-x7.webp',
   },
   {
     id: 'sprinter-jet-class',
