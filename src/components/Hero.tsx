@@ -27,6 +27,9 @@ export function Hero() {
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_50%]"
         />
 
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070b14]/85 via-[#070b14]/55 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070b14]/70 via-transparent to-transparent" aria-hidden="true" />
+
         <span
           className="pointer-events-none absolute inset-3 -z-0 rounded-[1.6rem] border border-gold/25 sm:inset-5 sm:rounded-[2.3rem]"
           aria-hidden="true"
@@ -40,14 +43,14 @@ export function Hero() {
                 Canada’s premier private fleet
               </p>
 
-              <h1 className="mt-7 text-5xl font-medium leading-[1.02] tracking-tight text-snow sm:text-6xl lg:text-7xl">
+              <h1 className="mt-7 text-5xl font-medium leading-[1.02] tracking-tight text-snow [text-shadow:0_2px_24px_rgba(0,0,0,0.55)] sm:text-6xl lg:text-7xl">
                 <TextReveal text="Drive luxury." />
                 <span className="mt-3 block font-light italic text-[#9fb8e8] sm:text-[4.25rem] lg:text-[5rem]">
                   <TextReveal text="Arrive in style." delay={500} />
                 </span>
               </h1>
 
-              <p className="mt-9 max-w-md border-l border-gold/50 pl-5 text-sm leading-relaxed text-snow/85 sm:text-base">
+              <p className="mt-9 max-w-md border-l border-gold/50 pl-5 text-sm leading-relaxed text-snow [text-shadow:0_1px_12px_rgba(0,0,0,0.85)] sm:text-base">
                 Luxury and commercial vehicle rentals in Toronto, from special occasions to everyday business.
               </p>
 
