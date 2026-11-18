@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, CalendarCheck, Clock, Headset, Mail, MapPin, Phone, Play, Route, ShieldCheck, Sparkles, Star } from 'lucide-react'
 import { SectionHeading, VehicleImage } from '../components/ui'
@@ -7,6 +8,7 @@ import { Hero } from '../components/Hero'
 import { CONTACT, categories, findVehicle, formatPrice, type VehicleCategory } from '../data/fleet'
 import { useModals } from '../context/ModalContext'
 import { useDocumentTitle } from '../lib/useDocumentTitle'
+import { useScrollReveal } from '../lib/useScrollReveal'
 
 const heroCar = findVehicle('escalade-platinum')!
 const sideCarA = findVehicle('porsche-911')!
@@ -48,11 +50,14 @@ const categoryImage: Record<VehicleCategory, string> = {
 export function Home() {
   useDocumentTitle('Genzee Fleet | Luxury Car Rental & Private Transit')
   const { openQuote } = useModals()
+  const rootRef = useRef<HTMLDivElement>(null)
+  useScrollReveal(rootRef)
 
   return (
     <>
       <Hero />
 
+      <div ref={rootRef}>
       {/* Why choose */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
@@ -273,6 +278,7 @@ export function Home() {
           <SupportItem icon={Phone} title="Call Us" body={CONTACT.phoneDisplay} href={CONTACT.phoneHref} />
         </div>
       </section>
+      </div>
     </>
   )
 }
