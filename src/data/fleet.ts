@@ -155,6 +155,7 @@ export const vehicles: Vehicle[] = [
       'A two-seat grand tourer with a striking presence, reserved for special occasions and short, memorable drives.',
     specs: { engine: null, horsepower: null, zeroToHundred: null, drivetrain: null, luggage: null },
     plate: { from: '#6b1a1a', to: '#1d0606' },
+    photo: '/images/ferrari-roma.webp',
   },
 ]
 
