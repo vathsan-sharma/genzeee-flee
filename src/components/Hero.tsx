@@ -24,8 +24,6 @@ export function Hero() {
           height="1116"
           className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_50%]"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070b14] via-[#070b14]/75 to-transparent" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070b14] via-transparent to-transparent" />
 
         <div className="reveal relative z-10 mx-auto w-full max-w-7xl px-6 pb-12 pt-32 text-left sm:pt-36 lg:px-10 lg:pb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold sm:text-sm">Canada’s premier private fleet</p>
