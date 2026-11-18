@@ -45,9 +45,10 @@ export function Footer() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex rounded-full border border-line px-4 py-2 text-xs font-medium transition-colors hover:border-gold hover:text-gold"
+                  aria-label={item.label}
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:border-gold hover:text-gold"
                 >
-                  {item.label}
+                  <SocialIcon name={item.label} />
                 </a>
               </li>
             ))}
@@ -119,5 +120,23 @@ function FooterColumn({ title, children }: { title: string; children: ReactNode 
       <p className="eyebrow">{title}</p>
       <ul className="mt-6 space-y-3 text-sm">{children}</ul>
     </div>
+  )
+}
+
+/** Brand glyphs drawn inline, so they don't depend on the icon library's brand set. */
+function SocialIcon({ name }: { name: string }) {
+  if (name === 'Instagram') {
+    return (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none" />
+      </svg>
+    )
+  }
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.3c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4z" />
+    </svg>
   )
 }

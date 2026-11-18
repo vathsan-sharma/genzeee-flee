@@ -4,6 +4,7 @@ import { ArrowUpRight, Menu, Phone, X } from 'lucide-react'
 import { CONTACT } from '../data/fleet'
 import { useModals } from '../context/ModalContext'
 import { Footer } from './Footer'
+import { BackToTop } from './BackToTop'
 
 const navItems = [
   { to: '/fleet', label: 'Fleet' },
@@ -101,6 +102,8 @@ export function Layout() {
           </button>
         </div>
       </header>
+
+      <BackToTop />
 
       {/* Sticky quote button on mobile, always in reach */}
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 px-4 pb-5 lg:hidden">
