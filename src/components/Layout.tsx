@@ -13,11 +13,11 @@ const navItems = [
   { to: '/contact', label: 'Contact' },
 ]
 
-/** A floating glass menu bar. It is light over the white home hero and dark everywhere else. */
+/** A floating ivory menu bar with the navy logo, sitting over the dark pages. */
 export function Layout() {
   const [open, setOpen] = useState(false)
-  // Every page now has a dark hero or dark background, so the bar stays dark glass.
-  const overLight = false
+  // The bar is ivory on every page, so the navy logo stays readable.
+  const overLight = true
   const { pathname } = useLocation()
   const { openQuote } = useModals()
 
@@ -35,19 +35,19 @@ export function Layout() {
   }, [open])
 
   const bar = overLight
-    ? 'border-ink/10 bg-white/75 text-ink shadow-[0_18px_40px_-22px_rgba(10,10,11,0.45)]'
+    ? 'border-gold/35 bg-[#f7f4ee]/92 text-ink shadow-[0_24px_50px_-24px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.9)]'
     : 'border-white/10 bg-ink/70 text-snow shadow-[0_18px_40px_-22px_rgba(0,0,0,0.9)]'
-  const link = overLight ? 'text-ink/85 hover:text-ink' : 'text-snow/85 hover:text-gold'
-  const accent = overLight ? 'text-[#7a4a14]' : 'text-gold'
+  const link = overLight ? 'text-ink/75 hover:text-[#14306b]' : 'text-snow/85 hover:text-gold'
+  const accent = overLight ? 'text-[#14306b]' : 'text-gold'
 
   return (
     <div className="flex min-h-dvh flex-col">
       <header className="pointer-events-none fixed inset-x-0 top-4 z-50 px-4">
         <div
-          className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border px-5 py-3 backdrop-blur-xl transition-colors duration-700 sm:px-7 ${bar}`}
+          className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border py-2 pl-4 pr-5 backdrop-blur-xl transition-colors duration-700 sm:pl-5 sm:pr-7 ${bar}`}
         >
-          <Link to="/" className="group inline-flex items-center rounded-[50px] border border-gold/40 bg-white px-4 py-2 shadow-[0_10px_24px_-12px_rgba(0,0,0,0.6)]" aria-label="Genzee Fleet home">
-            <img src="/images/genzee-fleet-logo.webp" alt="Genzee Fleet" width="1536" height="1024" className="h-20 w-auto" />
+          <Link to="/" className="group inline-flex items-center" aria-label="Genzee Fleet home">
+            <img src="/images/genzee-fleet-logo-transparent.png" alt="Genzee Fleet" width="1536" height="1024" className="h-20 w-auto" />
           </Link>
 
           {/* Desktop: links and quote button inside the bar */}
