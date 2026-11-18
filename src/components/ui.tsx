@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Gauge, Users } from 'lucide-react'
+import { TextReveal } from './TextReveal'
 import { categories, vehicleTitle, type Vehicle, type VehicleCategory, formatPrice } from "../data/fleet"
 
 export function SectionHeading({
@@ -17,7 +18,7 @@ export function SectionHeading({
   return (
     <div className={`max-w-3xl ${align === 'center' ? 'mx-auto text-center' : ''}`}>
       {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-      <h2 className={`${eyebrow ? 'mt-4' : ''} text-4xl leading-[1.08] sm:text-5xl`}>{title}</h2>
+      <h2 className={`${eyebrow ? 'mt-4' : ''} text-4xl leading-[1.08] sm:text-5xl`}>{typeof title === 'string' ? <TextReveal text={title} /> : title}</h2>
       {body && <div className="mt-5 text-base leading-relaxed text-mist sm:text-lg">{body}</div>}
     </div>
   )

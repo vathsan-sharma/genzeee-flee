@@ -1,6 +1,7 @@
 import { Clock, Headset, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useModals } from '../context/ModalContext'
+import { TextReveal } from './TextReveal'
 
 const trust = [
   { icon: Clock, label: 'Quote in 1 hour' },
@@ -29,8 +30,10 @@ export function Hero() {
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold sm:text-sm">Canada’s premier private fleet</p>
 
           <h1 className="mt-6 text-5xl font-medium leading-[1.02] tracking-tight text-snow sm:text-6xl lg:text-7xl">
-            Drive luxury.
-            <span className="mt-2 block font-light italic text-[#9fb8e8] sm:text-[4.25rem] lg:text-[5rem]">Arrive in style.</span>
+            <TextReveal text="Drive luxury." />
+            <span className="mt-2 block font-light italic text-[#9fb8e8] sm:text-[4.25rem] lg:text-[5rem]">
+              <TextReveal text="Arrive in style." delay={500} />
+            </span>
           </h1>
 
           <span className="mt-8 block h-px w-16 bg-gold/70" aria-hidden="true" />

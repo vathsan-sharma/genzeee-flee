@@ -91,6 +91,46 @@
   opacity: 0;
 }
 
+/* Word-by-word text reveal (see TextReveal.tsx). */
+.tr-word {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(0.45em);
+}
+
+.tr-shown .tr-word {
+  animation: tr-in 900ms var(--ease-luxe) var(--tr-delay, 0ms) both;
+}
+
+@keyframes tr-in {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+
+/* Gold accent words in headings catch a slow shine. */
+h1 .text-gold,
+h2 .text-gold {
+  background: linear-gradient(100deg, #d6aa5c 0%, #d6aa5c 40%, #f6e2b0 50%, #d6aa5c 60%, #d6aa5c 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shine 6s linear infinite;
+}
+
+@keyframes gold-shine {
+  from {
+    background-position: 100% center;
+  }
+  to {
+    background-position: -100% center;
+  }
+}
+
 @keyframes rv-up {
   from {
     opacity: 0;
@@ -126,10 +166,21 @@
   }
   .reveal,
   .ken-burns,
-  .rv-in {
+  .rv-in,
+  .tr-shown .tr-word,
+  h1 .text-gold,
+  h2 .text-gold {
     animation: none;
   }
-  .rv:not(.rv-in) {
+  .rv:not(.rv-in),
+  .tr-word {
     opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  h1 .text-gold,
+  h2 .text-gold {
+    background: none;
+    color: var(--color-gold);
   }
 }
