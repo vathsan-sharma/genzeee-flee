@@ -46,7 +46,7 @@ export function Layout() {
           className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border px-5 py-3 backdrop-blur-xl transition-colors duration-700 sm:px-7 ${bar}`}
         >
           <Link to="/" className="group inline-flex items-center rounded-full bg-white px-3 py-1" aria-label="Genzee Fleet home">
-            <img src="/images/genzee-fleet-logo.webp" alt="Genzee Fleet" width="1536" height="1024" className="h-8 w-auto" />
+            <img src="/images/genzee-fleet-logo.webp" alt="Genzee Fleet" width="1536" height="1024" className="h-11 w-auto" />
           </Link>
 
           {/* Desktop: links and quote button inside the bar */}
