@@ -9,25 +9,25 @@ const trust = [
 ]
 
 /**
- * Full-bleed night skyline with a dark wash, the headline on the left and a luxury sedan on the right.
- * On small screens the sedan drops below the copy.
+ * Full-bleed night hero: one photo with a dark wash on the left so the headline stays readable.
  */
 export function Hero() {
   const { openQuote } = useModals()
 
   return (
     <section className="px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="relative isolate flex min-h-[calc(100dvh-6rem)] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#070b14] sm:rounded-[2.75rem] lg:flex-row lg:items-center">
+      <div className="relative isolate flex min-h-[calc(100dvh-6rem)] items-center overflow-hidden rounded-[2rem] border border-white/10 bg-[#070b14] sm:rounded-[2.75rem]">
         <img
-          src="/images/toronto-skyline-night.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_60%]"
+          src="/images/home-hero.jpg"
+          alt="Dark sedan parked by the Toronto waterfront at night, with the city skyline behind"
+          width="2000"
+          height="1116"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-[70%_50%]"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070b14] via-[#070b14]/80 to-[#070b14]/20" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070b14] via-[#070b14]/75 to-transparent" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070b14] via-transparent to-transparent" />
 
-        <div className="reveal relative z-10 mx-auto w-full max-w-7xl px-6 pb-8 pt-32 text-left sm:pt-36 lg:px-10 lg:pb-16">
+        <div className="reveal relative z-10 mx-auto w-full max-w-7xl px-6 pb-12 pt-32 text-left sm:pt-36 lg:px-10 lg:pb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold sm:text-sm">Canada’s premier private fleet</p>
 
           <h1 className="mt-6 text-5xl font-medium leading-[1.02] tracking-tight text-snow sm:text-6xl lg:text-7xl">
@@ -67,14 +67,6 @@ export function Hero() {
             ))}
           </ul>
         </div>
-
-        <img
-          src="/images/rolls-royce-ghost-extended.webp"
-          alt="Rolls-Royce Ghost Extended, luxury sedan"
-          width="1280"
-          height="720"
-          className="relative z-0 mx-auto mt-6 w-[92%] object-contain [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_80%)] lg:absolute lg:bottom-[4%] lg:right-[-2%] lg:mt-0 lg:w-[60%] lg:max-w-none"
-        />
       </div>
     </section>
   )
