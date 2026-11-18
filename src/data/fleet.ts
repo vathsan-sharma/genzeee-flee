@@ -80,6 +80,7 @@ export const vehicles: Vehicle[] = [
       'The flagship Range Rover combines all-terrain capability with a hand-finished cabin, ideal for airport runs in winter and weekend escapes.',
     specs: { engine: null, horsepower: null, zeroToHundred: null, drivetrain: null, luggage: null },
     plate: { from: '#263a33', to: '#0c2a21' },
+    photo: '/images/range-rover-sv.webp',
   },
   {
     id: 'escalade-platinum',
