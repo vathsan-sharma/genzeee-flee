@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { X } from 'lucide-react'
 import { InquiryForm } from './InquiryForm'
+import { DirectContact } from './DirectContact'
 import type { ServiceType } from '../data/fleet'
 
 /** Quick reservation inquiry. Closes on Escape, the close button, or a click outside the panel. */
@@ -55,7 +56,8 @@ export function QuoteModal({
           Tell us what you need. We confirm availability and a fixed quotation before any payment is taken.
         </p>
         <div className="mt-8">
-          <InquiryForm vehicleId={vehicleId} service={service} submitLabel="Send Inquiry" onCancel={onClose} />
+          <DirectContact className="mb-8" />
+          <InquiryForm vehicleId={vehicleId} service={service} onCancel={onClose} />
         </div>
       </div>
     </div>

@@ -21,7 +21,6 @@ const serviceLinks = [
 const socials = [
   { href: 'https://www.instagram.com/', label: 'Instagram' },
   { href: 'https://www.facebook.com/', label: 'Facebook' },
-  { href: 'https://www.linkedin.com/', label: 'LinkedIn' },
 ]
 
 const legal = ['Privacy Policy', 'Terms & Conditions', 'Rental Agreement', 'Insurance Requirements', 'Refund Policy'] as const
@@ -32,12 +31,12 @@ export function Footer() {
   const { openLegal } = useModals()
 
   return (
-    <footer className="border-t border-line bg-[#070708] text-mist">
+    <footer className="border-t border-line bg-[#070708] pb-24 text-mist lg:pb-0">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10 lg:px-10">
         <div className="sm:col-span-2 lg:col-span-4">
           <Logo />
           <p className="mt-6 max-w-xs leading-relaxed">
-            Canada’s premier private fleet. Exotic, executive and chauffeur-driven vehicles, arranged with discretion.
+            Canada’s premier private fleet. Exotic and executive vehicles, arranged with discretion.
           </p>
           <ul className="mt-8 flex flex-wrap gap-3" aria-label="Social media">
             {socials.map((item) => (

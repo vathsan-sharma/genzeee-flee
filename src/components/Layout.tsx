@@ -15,21 +15,14 @@ const navItems = [
 /** A floating glass menu bar. It is light over the white home hero and dark everywhere else. */
 export function Layout() {
   const [open, setOpen] = useState(false)
-  const [overLight, setOverLight] = useState(true)
+  // Every page now has a dark hero or dark background, so the bar stays dark glass.
+  const overLight = false
   const { pathname } = useLocation()
   const { openQuote } = useModals()
 
   // Reset the page scroll on route change. The menu closes from its own links.
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [pathname])
-
-  // The home hero is white, so the bar switches to light glass while it is on screen.
-  useEffect(() => {
-    const onScroll = () => setOverLight(pathname === '/' && window.scrollY < window.innerHeight * 0.7)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
   }, [pathname])
 
   // Lock page scroll while the mobile menu is open.
@@ -58,6 +51,13 @@ export function Layout() {
 
           {/* Desktop: links and quote button inside the bar */}
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+            <a
+              href={CONTACT.phoneHref}
+              className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold tracking-wide transition-colors duration-500 hover:text-gold"
+            >
+              <Phone size={14} strokeWidth={1.5} className={accent} aria-hidden="true" />
+              {CONTACT.phoneDisplay}
+            </a>
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
@@ -81,6 +81,14 @@ export function Layout() {
             </button>
           </nav>
 
+          <a
+            href={CONTACT.phoneHref}
+            aria-label={`Call ${CONTACT.phoneDisplay}`}
+            className="flex h-9 w-9 items-center justify-center rounded-full lg:hidden"
+          >
+            <Phone size={18} strokeWidth={1.5} className={accent} aria-hidden="true" />
+          </a>
+
           <button
             type="button"
             className="flex h-9 w-9 items-center justify-center rounded-full lg:hidden"
@@ -93,6 +101,17 @@ export function Layout() {
           </button>
         </div>
       </header>
+
+      {/* Sticky quote button on mobile, always in reach */}
+      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-30 px-4 pb-5 lg:hidden">
+        <button
+          type="button"
+          onClick={() => openQuote()}
+          className="pointer-events-auto btn-gold w-full shadow-[0_18px_40px_-14px_rgba(0,0,0,0.9)]"
+        >
+          Get a Quote
+        </button>
+      </div>
 
       {/* Mobile menu: a full-screen panel below the bar */}
       <div

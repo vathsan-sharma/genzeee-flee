@@ -5,7 +5,7 @@ import { SectionHeading } from '../components/ui'
 import { useDocumentTitle } from '../lib/useDocumentTitle'
 
 const benefits = [
-  { icon: CalendarDays, title: 'Consolidated monthly billing', body: 'One invoice across vehicles, drivers and transfers, issued monthly.' },
+  { icon: CalendarDays, title: 'Consolidated monthly billing', body: 'One invoice across vehicles and transfers, issued monthly.' },
   { icon: UserRoundCheck, title: 'Dedicated account manager', body: 'A named point of contact who knows your schedule and preferences.' },
   { icon: BadgeCheck, title: 'Priority fleet allocation', body: 'Reserved vehicles for recurring clients, productions and events.' },
   { icon: FileLock2, title: 'Non-disclosure privacy agreements', body: 'Confidentiality agreements available for principals and productions.' },

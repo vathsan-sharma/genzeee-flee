@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, CalendarCheck, Clock, Headset, Mail, MapPin, Phone, Play, Route, ShieldCheck, Sparkles, Star, UserRound } from 'lucide-react'
+import { ArrowRight, CalendarCheck, Clock, Headset, Mail, MapPin, Phone, Play, Route, ShieldCheck, Sparkles, Star } from 'lucide-react'
 import { SectionHeading, VehicleImage } from '../components/ui'
 import { InquiryForm } from '../components/InquiryForm'
+import { DirectContact } from '../components/DirectContact'
 import { Hero } from '../components/Hero'
-import { CONTACT, categories, findVehicle, type VehicleCategory } from '../data/fleet'
+import { CONTACT, categories, findVehicle, formatPrice, type VehicleCategory } from '../data/fleet'
 import { useModals } from '../context/ModalContext'
 import { useDocumentTitle } from '../lib/useDocumentTitle'
 
@@ -21,19 +22,18 @@ const reasons = [
 const steps = [
   { icon: Route, title: 'Choose your vehicle', body: 'Browse the fleet or tell us what you need for the journey.' },
   { icon: CalendarCheck, title: 'Request a quote', body: 'Share dates, locations and requirements. We confirm within one business hour.' },
-  { icon: Play, title: 'Drive or ride', body: 'Collect your vehicle or meet your chauffeur, and arrive in style.' },
+  { icon: Play, title: 'Drive or ride', body: 'Collect your vehicle at the agreed time and arrive in style.' },
 ]
 
 const benefits = [
   { icon: Clock, title: 'Quote in one hour', body: 'A concierge confirms availability and pricing within one business hour.' },
-  { icon: UserRound, title: 'Chauffeur on request', body: 'Suited, vetted drivers for any vehicle, by the hour or the day.' },
   { icon: MapPin, title: 'Across the GTA', body: 'Doorstep delivery across the GTA and airport curbside pickup.' },
   { icon: Star, title: 'Corporate accounts', body: 'Consolidated billing, priority allocation and a named account manager.' },
 ]
 
 // Sample copy in the review slots. Replace with real client testimonials before launch.
 const reviews = [
-  'Our chauffeur was waiting before we landed, and the handover could not have been smoother.',
+  'Our car was ready before we landed, and the handover could not have been smoother.',
   'We book the shuttle for every client visit. Timings are always kept and the team anticipates needs.',
   'Discreet, precise and beautifully presented. It is the standard we expect from a private car service.',
 ]
@@ -57,7 +57,7 @@ export function Home() {
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <SectionHeading eyebrow="Why choose Genzee" title={<>Your journey, <span className="text-gold">our priority</span></>} />
+            <SectionHeading title={<>Your journey, <span className="text-gold">our priority</span></>} />
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-mist lg:col-span-4 lg:col-start-9">
             We combine comfort, style and reliability to give you the best rental experience.
@@ -78,7 +78,7 @@ export function Home() {
 
       {/* Top picks: one large feature and two smaller cards */}
       <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
-        <SectionHeading eyebrow="Top picked cars" title="Choose your perfect car" />
+        <SectionHeading title="Choose your perfect car" />
         <div className="mt-14 grid min-w-0 gap-5 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
           <Link to={`/vehicle/${heroCar.id}`} className="card group relative flex min-h-[420px] min-w-0 flex-col justify-end overflow-hidden">
             <VehicleImage vehicle={heroCar} className="absolute inset-0 h-full w-full transition-transform duration-[1400ms] ease-luxe group-hover:scale-[1.03]" />
@@ -88,6 +88,7 @@ export function Home() {
                 <span className="rounded-full bg-gold px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-ink">Popular</span>
                 <h3 className="mt-4 text-2xl">{heroCar.make} {heroCar.model}</h3>
                 <p className="mt-2 text-sm text-mist">{heroCar.seats} seats · {heroCar.transmission}</p>
+                <p className="mt-1 text-sm text-gold">Price {formatPrice(heroCar)}</p>
               </div>
               <span className="whitespace-nowrap text-sm font-medium text-gold">Inquire for rates →</span>
             </div>
@@ -100,6 +101,7 @@ export function Home() {
                 <div className="min-w-0">
                   <h3 className="truncate text-base">{vehicle.make} {vehicle.model}</h3>
                   <p className="mt-1 text-xs text-mist">{vehicle.seats} seats · {vehicle.transmission}</p>
+                  <p className="mt-1 text-xs text-gold">Price {formatPrice(vehicle)}</p>
                   <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-gold">
                     Inquire <ArrowRight size={14} strokeWidth={1.5} />
                   </span>
@@ -113,8 +115,7 @@ export function Home() {
       {/* Three steps */}
       <section className="border-y border-line bg-panel">
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-          <p className="eyebrow">Easy &amp; fast process</p>
-          <h2 className="mt-4 text-4xl sm:text-5xl">Rent in 3 simple steps</h2>
+          <h2 className="text-4xl sm:text-5xl">Rent in 3 simple steps</h2>
           <ol className="mt-14 grid gap-6 md:grid-cols-3">
             {steps.map(({ icon: Icon, title, body }, index) => (
               <li key={title} className="rounded-3xl border border-line bg-ink p-8">
@@ -135,7 +136,7 @@ export function Home() {
       {/* Benefits */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <SectionHeading eyebrow="Our benefits" title={<>More than just a <span className="text-gold">car rental</span></>} />
+          <SectionHeading title={<>More than just a <span className="text-gold">car rental</span></>} />
           <Link to="/services" className="btn-outline self-start md:self-auto">
             View all benefits
           </Link>
@@ -159,7 +160,7 @@ export function Home() {
       <section className="border-y border-line bg-panel py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="Popular categories" title={<>Find the right car <span className="text-gold">for you</span></>} />
+            <SectionHeading title={<>Find the right car <span className="text-gold">for you</span></>} />
             <Link to="/fleet" className="btn-outline self-start md:self-auto">
               View all
             </Link>
@@ -193,8 +194,7 @@ export function Home() {
 
       {/* Reviews */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-        <p className="eyebrow">What our clients say</p>
-        <h2 className="mt-4 text-4xl sm:text-5xl">Trusted by discerning drivers</h2>
+        <h2 className="text-4xl sm:text-5xl">Trusted by discerning drivers</h2>
         <ul className="mt-14 grid gap-5 md:grid-cols-3">
           {reviews.map((quote) => (
             <li key={quote} className="card flex flex-col justify-between p-8">
@@ -222,9 +222,8 @@ export function Home() {
       <section className="mx-auto max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
         <div className="relative flex flex-col items-start justify-between gap-8 overflow-hidden rounded-[2rem] border border-gold/30 bg-gradient-to-r from-panel to-panel-2 p-10 md:flex-row md:items-center lg:p-14">
           <div>
-            <p className="eyebrow">Reservations</p>
-            <h2 className="mt-4 text-3xl sm:text-4xl">Tell us where you need to be.</h2>
-            <p className="mt-4 max-w-md text-mist">A dedicated concierge confirms vehicle, chauffeur and pricing within one business hour.</p>
+            <h2 className="text-3xl sm:text-4xl">Tell us where you need to be.</h2>
+            <p className="mt-4 max-w-md text-mist">A dedicated concierge confirms vehicle and pricing within one business hour.</p>
           </div>
           <button type="button" onClick={() => openQuote()} className="btn-gold shrink-0">
             Request a Quote
@@ -236,21 +235,21 @@ export function Home() {
       <section className="border-t border-line bg-panel py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-12 lg:gap-16 lg:px-10">
           <div className="lg:col-span-7">
-            <SectionHeading eyebrow="Send an inquiry" title="Tell us about your journey" />
+            <SectionHeading title="Tell us about your journey" />
             <div className="card mt-10 p-6 sm:p-10">
               <InquiryForm />
             </div>
           </div>
 
           <div className="relative lg:col-span-5">
+            <DirectContact className="mb-6" />
             <img
               src="/images/mercedes-maybach-s680.png"
               alt="Mercedes-Maybach S 680"
               className="aspect-[4/5] w-full rounded-3xl object-cover"
             />
             <div className="glass absolute inset-x-4 bottom-4 p-6 sm:inset-x-8 sm:bottom-8 sm:p-8">
-              <p className="eyebrow">Contact</p>
-              <ul className="mt-5 space-y-4 text-sm">
+              <ul className="space-y-4 text-sm">
                 <li className="flex gap-3">
                   <Phone size={16} strokeWidth={1.5} className="mt-0.5 shrink-0 text-gold" />
                   <a href={CONTACT.phoneHref} className="hover:text-gold">{CONTACT.phoneDisplay}</a>

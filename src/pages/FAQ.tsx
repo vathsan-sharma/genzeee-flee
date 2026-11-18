@@ -9,7 +9,7 @@ import { useDocumentTitle } from '../lib/useDocumentTitle'
 const faqs = [
   {
     q: 'What is the minimum age to rent?',
-    a: 'Renters must be at least 25 years old for the luxury tier. Younger drivers can ask about chauffeur service, which is arranged on a driver-led basis.',
+    a: 'Renters must be at least 25 years old for the luxury tier.',
   },
   {
     q: 'Which driver’s licence do I need?',

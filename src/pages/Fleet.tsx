@@ -35,7 +35,7 @@ export function Fleet() {
           eyebrow="The Fleet"
           title={
             <>
-              Exotic, executive and <span className="text-gold">chauffeur-driven</span>
+              Exotic, executive and <span className="text-gold">private</span>
             </>
           }
           body="Every vehicle is maintained to manufacturer standard, inspected and detailed before each booking."

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Gauge, Users } from 'lucide-react'
-import { categories, vehicleTitle, type Vehicle, type VehicleCategory } from '../data/fleet'
+import { categories, vehicleTitle, type Vehicle, type VehicleCategory, formatPrice } from "../data/fleet"
 
 export function SectionHeading({
   eyebrow,
@@ -97,6 +97,11 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
             <Gauge size={13} strokeWidth={1.5} /> {vehicle.transmission}
           </li>
         </ul>
+
+        <p className="mt-4 flex items-baseline justify-between border-t border-line pt-4 text-sm text-mist">
+          <span>Price</span>
+          <span className="font-display text-lg text-gold">{formatPrice(vehicle)}</span>
+        </p>
 
         <Link
           to={`/vehicle/${vehicle.id}`}

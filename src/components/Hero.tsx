@@ -9,56 +9,72 @@ const trust = [
 ]
 
 /**
- * Full-width hero inside a curved frame. The background is a full-bleed white studio render,
- * with dark copy on top, so the frame stays bright.
+ * Full-bleed night skyline with a dark wash, the headline on the left and a luxury sedan on the right.
+ * On small screens the sedan drops below the copy.
  */
 export function Hero() {
   const { openQuote } = useModals()
 
   return (
     <section className="px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="relative isolate flex min-h-[calc(100dvh-6rem)] items-start justify-center overflow-hidden rounded-[2rem] border border-line bg-[#d4d4d8] sm:rounded-[2.75rem]">
+      <div className="relative isolate flex min-h-[calc(100dvh-6rem)] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#070b14] sm:rounded-[2.75rem] lg:flex-row lg:items-center">
         <img
-          src="/images/white-sports-coupe-hd.jpg"
-          alt="White sports coupe, studio render"
-          className="ken-burns absolute inset-0 -z-10 h-full w-full object-cover object-[50%_0%]"
+          src="/images/toronto-skyline-night.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_60%]"
         />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#070b14] via-[#070b14]/80 to-[#070b14]/20" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#070b14] via-transparent to-transparent" />
 
-        <div className="reveal mx-auto max-w-4xl px-6 pb-12 pt-32 text-center sm:pt-36">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#7a4a14]">Private fleet · Toronto</p>
+        <div className="reveal relative z-10 mx-auto w-full max-w-7xl px-6 pb-8 pt-32 text-left sm:pt-36 lg:px-10 lg:pb-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold sm:text-sm">Canada’s premier private fleet</p>
 
-          <h1 className="mt-6 text-5xl font-medium uppercase leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
-            Drive luxury,
-            <span className="mt-2 block font-light italic normal-case tracking-normal text-ink/85 sm:text-[4.25rem] lg:text-[5rem]">
-              arrive in style
-            </span>
+          <h1 className="mt-6 text-5xl font-medium leading-[1.02] tracking-tight text-snow sm:text-6xl lg:text-7xl">
+            Drive luxury.
+            <span className="mt-2 block font-light italic text-[#9fb8e8] sm:text-[4.25rem] lg:text-[5rem]">Arrive in style.</span>
           </h1>
 
-          <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-ink/75 sm:text-base">
-            Exotic and executive cars, with chauffeur on request.
+          <span className="mt-8 block h-px w-16 bg-gold/70" aria-hidden="true" />
+
+          <p className="mt-8 max-w-md text-sm leading-relaxed text-snow/80 sm:text-base">
+            Luxury and commercial vehicle rentals in Toronto, from special occasions to everyday business.
           </p>
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button type="button" onClick={() => openQuote()} className="btn-gold !px-8 !py-4">
-              Request a quote
-            </button>
+          <div className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
             <Link
               to="/fleet"
-              className="border border-ink/50 px-8 py-4 text-xs font-medium uppercase tracking-[0.22em] text-ink transition-colors duration-500 hover:bg-ink hover:text-snow"
+              className="inline-flex items-center justify-center gap-3 rounded-md bg-[#14306b] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-snow transition-colors duration-500 hover:bg-[#1c3f89]"
             >
-              Explore fleet
+              Explore our fleet
+              <span aria-hidden="true">→</span>
             </Link>
+            <button
+              type="button"
+              onClick={() => openQuote()}
+              className="inline-flex items-center justify-center rounded-md border border-snow/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-snow transition-colors duration-500 hover:border-gold hover:text-gold"
+            >
+              Request a quote
+            </button>
           </div>
 
-          <ul className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs text-ink/70">
+          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs text-snow/70">
             {trust.map(({ icon: Icon, label }) => (
               <li key={label} className="flex items-center gap-2">
-                <Icon size={14} strokeWidth={1.5} className="text-gold-deep" />
+                <Icon size={14} strokeWidth={1.5} className="text-gold" />
                 {label}
               </li>
             ))}
           </ul>
         </div>
+
+        <img
+          src="/images/rolls-royce-ghost-extended.webp"
+          alt="Rolls-Royce Ghost Extended, luxury sedan"
+          width="1280"
+          height="720"
+          className="relative z-0 mx-auto mt-6 w-[92%] object-contain [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_80%)] lg:absolute lg:bottom-[4%] lg:right-[-2%] lg:mt-0 lg:w-[60%] lg:max-w-none"
+        />
       </div>
     </section>
   )

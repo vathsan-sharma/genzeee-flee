@@ -77,7 +77,7 @@ export function VehicleDetail() {
           <div className="card sticky top-28 p-8 sm:p-10">
             <p className="eyebrow">Inquire for rates</p>
             <p className="mt-4 text-sm leading-relaxed text-mist">
-              Pricing depends on duration, route, chauffeur and season. Reserve this vehicle and a concierge will send a fixed quotation.
+              Pricing depends on duration, route and season. Reserve this vehicle and a concierge will send a fixed quotation.
             </p>
             <dl className="mt-8 space-y-4 border-t border-line pt-8 text-sm">
               <div className="flex justify-between gap-6">

@@ -1,4 +1,4 @@
-import { Car, Plane, UserRound, Users } from 'lucide-react'
+import { Car, Plane, Users } from 'lucide-react'
 import { PageBanner } from '../components/PageBanner'
 import { SectionHeading } from '../components/ui'
 import { useModals } from '../context/ModalContext'
@@ -25,13 +25,6 @@ const services: {
     body: 'High-capacity transport for VIP delegations, executive teams and families.',
     service: 'Executive Van Rental',
     points: ['Up to eight passengers in Jet Class', 'Luggage space for delegations', 'Event and multi-stop routing'],
-  },
-  {
-    icon: UserRound,
-    title: 'Chauffeur Services',
-    body: 'Uniformed, professional drivers for private transfers and hourly itineraries.',
-    service: 'Chauffeur Service',
-    points: ['Hourly and full-day bookings', 'Wait time managed in real time', 'Vetted, suited chauffeurs'],
   },
   {
     icon: Plane,

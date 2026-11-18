@@ -24,7 +24,11 @@ export interface Vehicle {
   plate: { from: string; to: string }
   /** Public path to a photo in /public/images. Falls back to the plate when absent. */
   photo?: string
+  /** Rental price. Shown as $0 until pricing is confirmed. */
+  price?: number
 }
+
+export const formatPrice = (vehicle: Vehicle) => `\$${vehicle.price ?? 0}`
 
 export const vehicles: Vehicle[] = [
   {
@@ -159,7 +163,6 @@ export const vehicleTitle = (vehicle: Vehicle) => `${vehicle.year} ${vehicle.mak
 export const serviceTypes = [
   'Luxury Car Rental',
   'Executive Van Rental',
-  'Chauffeur Service',
   'Corporate Fleet Account',
   'VIP Airport Transfer',
 ] as const
@@ -170,13 +173,13 @@ export const CONTACT = {
   brand: 'Genzee Fleet',
   phoneDisplay: '416-677-0606',
   phoneHref: 'tel:+14166770606',
+  whatsappNumber: '14166770606',
   email: 'contact@genzee.ca',
   address: '10 Thornmount Dr, Scarborough, ON M1B 3J4',
   hours: 'Monday – Sunday · 24 Hours · By Appointment',
 }
 
 export const inclusions = [
-  'Chauffeur option available on every vehicle',
   'Doorstep delivery across the GTA and airport curbside pickup',
   'Comprehensive commercial vehicle insurance coverage',
 ]
