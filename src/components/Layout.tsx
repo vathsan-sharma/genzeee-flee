@@ -52,9 +52,8 @@ export function Layout() {
         <div
           className={`pointer-events-auto mx-auto flex max-w-6xl items-center justify-between rounded-full border px-5 py-3 backdrop-blur-xl transition-colors duration-700 sm:px-7 ${bar}`}
         >
-          <Link to="/" className="group flex items-baseline gap-2.5" aria-label="Genzee Fleet home">
-            <span className="text-sm font-semibold tracking-[0.3em]">GENZEE</span>
-            <span className={`text-[0.6rem] font-semibold tracking-[0.36em] ${accent}`}>FLEET</span>
+          <Link to="/" className="group inline-flex items-center rounded-full bg-white px-3 py-1" aria-label="Genzee Fleet home">
+            <img src="/images/genzee-fleet-logo.webp" alt="Genzee Fleet" width="1536" height="1024" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop: links and quote button inside the bar */}
@@ -64,7 +63,7 @@ export function Layout() {
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `text-[0.7rem] font-medium uppercase tracking-[0.22em] transition-colors duration-500 ${
+                  `text-[0.8rem] font-medium uppercase tracking-[0.22em] transition-colors duration-500 ${
                     isActive ? accent : link
                   }`
                 }
