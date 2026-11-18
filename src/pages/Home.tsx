@@ -84,7 +84,7 @@ export function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
             <div className="relative flex items-end justify-between gap-6 p-8">
               <div>
-                <span className="rounded-full bg-gold px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-ink">Popular</span>
+                <span className="rounded-full bg-gold px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-ink">Popular</span>
                 <h3 className="mt-4 text-2xl">{heroCar.make} {heroCar.model}</h3>
                 <p className="mt-2 text-sm text-mist">{heroCar.seats} seats · {heroCar.transmission}</p>
                 <p className="mt-1 text-sm text-gold">Price {formatPrice(heroCar)}</p>

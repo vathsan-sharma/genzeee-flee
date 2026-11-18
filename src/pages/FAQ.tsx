@@ -38,7 +38,6 @@ export function FAQ() {
     <>
       <PageBanner>
         <SectionHeading
-          eyebrow="FAQ"
           title={
             <>
               Answers, <span className="text-gold">before you ask</span>

@@ -32,7 +32,6 @@ export function Fleet() {
     <>
       <PageBanner>
         <SectionHeading
-          eyebrow="The Fleet"
           title={
             <>
               Exotic, executive and <span className="text-gold">private</span>

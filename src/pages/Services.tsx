@@ -43,7 +43,6 @@ export function Services() {
     <>
       <PageBanner>
         <SectionHeading
-          eyebrow="Services"
           title={
             <>
               One concierge. <span className="text-gold">Every</span> journey.

@@ -12,7 +12,6 @@ export function Contact() {
     <>
       <PageBanner>
         <SectionHeading
-          eyebrow="Contact"
           title={
             <>
               Speak with <span className="text-gold">concierge</span>
@@ -29,8 +28,7 @@ export function Contact() {
 
         <aside className="lg:col-span-5">
           <div className="card p-8 sm:p-10">
-            <p className="eyebrow">Headquarters</p>
-            <p className="mt-5 text-2xl">Scarborough, Ontario</p>
+            <p className="text-2xl">Scarborough, Ontario</p>
             <p className="mt-2 text-sm text-mist">{CONTACT.address}</p>
 
             <ul className="mt-10 space-y-6 border-t border-line pt-8 text-sm">

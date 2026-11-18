@@ -77,7 +77,7 @@ export function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
           vehicle={vehicle}
           className="absolute inset-0 h-full w-full transition-transform duration-[1400ms] ease-luxe group-hover:scale-[1.05]"
         />
-        <span className="absolute left-4 top-4 rounded-full bg-ink/80 px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold backdrop-blur">
+        <span className="absolute left-4 top-4 rounded-full bg-ink/80 px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold backdrop-blur">
           {vehicle.category}
         </span>
       </Link>

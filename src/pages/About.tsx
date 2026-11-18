@@ -35,7 +35,6 @@ export function About() {
     <>
       <PageBanner>
         <SectionHeading
-          eyebrow="About Genzee"
           title={
             <>
               Canadian luxury, <span className="text-gold">held to a higher standard</span>
@@ -62,8 +61,7 @@ export function About() {
 
       <section className="border-y border-line bg-panel py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <p className="eyebrow">Vehicle protocols</p>
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             {protocols.map(({ icon: Icon, title, body }) => (
               <div key={title} className="card p-8 lg:p-10">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 text-gold">
@@ -78,7 +76,7 @@ export function About() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
-        <SectionHeading eyebrow="Service footprint" title="Where we operate" />
+        <SectionHeading title="Where we operate" />
         <ul className="mt-14 grid gap-5 md:grid-cols-3">
           {footprint.map(({ place, note }) => (
             <li key={place} className="card p-8 lg:p-10">

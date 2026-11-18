@@ -39,7 +39,7 @@ export function VehicleDetail() {
 
       <section className="mx-auto grid max-w-7xl gap-14 px-6 py-16 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-24">
         <div className="lg:col-span-7">
-          <span className="rounded-full border border-gold/40 px-3 py-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-gold">
+          <span className="rounded-full border border-gold/40 px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-gold">
             {vehicle.category}
           </span>
           <h1 className="mt-6 text-4xl leading-[1.05] sm:text-6xl">{title}</h1>
@@ -51,7 +51,7 @@ export function VehicleDetail() {
             {specs.map(({ icon: Icon, label, value }) => (
               <div key={label} className="bg-panel p-6">
                 <Icon size={18} strokeWidth={1.5} className="text-gold" />
-                <dt className="mt-5 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-mist">{label}</dt>
+                <dt className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-mist">{label}</dt>
                 <dd className="mt-2 text-lg">
                   {value ?? <span className="text-sm font-normal italic text-mist">To be confirmed</span>}
                 </dd>
@@ -75,8 +75,7 @@ export function VehicleDetail() {
 
         <aside className="lg:col-span-5">
           <div className="card sticky top-28 p-8 sm:p-10">
-            <p className="eyebrow">Inquire for rates</p>
-            <p className="mt-4 text-sm leading-relaxed text-mist">
+            <p className="text-sm leading-relaxed text-mist">
               Pricing depends on duration, route and season. Reserve this vehicle and a concierge will send a fixed quotation.
             </p>
             <dl className="mt-8 space-y-4 border-t border-line pt-8 text-sm">

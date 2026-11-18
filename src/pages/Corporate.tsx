@@ -21,7 +21,6 @@ export function Corporate() {
       <PageBanner>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-end">
           <SectionHeading
-            eyebrow="Corporate accounts"
             title={
               <>
                 A fleet that runs <span className="text-gold">as your team does</span>
@@ -53,7 +52,6 @@ export function Corporate() {
 
       <section className="mx-auto max-w-4xl px-6 pb-24 lg:px-10 lg:pb-32">
         <SectionHeading
-          eyebrow="Corporate application"
           title="Open a corporate account"
           body="Share your organisation’s details and expected volume. We reply within one business day."
         />
